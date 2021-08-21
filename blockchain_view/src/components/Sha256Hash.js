@@ -15,18 +15,16 @@ function Sha256Hash() {
         setData(formData);
     }
     return (
-        <>
+        <Container maxW="80%" mt="6">
             <Heading mb="10">SHA256 Hash</Heading>
-            <Container maxW="80%">
-                <Box bg="green.100" padding="6" borderRadius="md">
-                    <Text>Data:</Text>
-                    <Textarea bg="white" mb="2" onChange={updateData} />
-                    <Text>SHA256 print:</Text>
-                    <Input bg="white" mb="2" value={sha256} />
-                    <Button colorScheme="blue">Calculate SHA256</Button>
-                </Box>
-            </Container>
-        </>
+            <Box bg="green.100" padding="6" borderRadius="md">
+                <Text>Data:</Text>
+                <Textarea bg="white" mb="2" onChange={updateData} />
+                <Text>SHA256 print:</Text>
+                <Input bg="white" mb="2" value={sha256} />
+                <Button colorScheme="blue">Calculate SHA256</Button>
+            </Box>
+        </Container>
     )
 }
 
