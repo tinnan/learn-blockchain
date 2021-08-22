@@ -6,6 +6,7 @@ import Blockchain from "./components/Blockchain";
 import Header from "./components/Header";
 import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import Distributed from "./components/Distributed";
+import Transactions from "./components/Transactions";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/distributed">
           <Distributed />
+        </Route>
+        <Route path="/transactions">
+          <Transactions />
         </Route>
       </Switch>
     </Router>

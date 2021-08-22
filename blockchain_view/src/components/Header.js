@@ -28,6 +28,7 @@ function Header() {
         <MenuItems link="/block">Block</MenuItems>
         <MenuItems link="/blockchain">Blockchain</MenuItems>
         <MenuItems link="/distributed">Distributed</MenuItems>
+        <MenuItems link="/transactions">Transactions</MenuItems>
       </Box>
     </Flex>
   );
