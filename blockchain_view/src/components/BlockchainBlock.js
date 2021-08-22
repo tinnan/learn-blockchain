@@ -18,28 +18,28 @@ function BlockchainBlock({
   previousHash,
   hash,
   updateChainValue,
+  node,
 }) {
-  const [b, setBlockNumber] = useState(1);
-  const [n, setNonce] = useState(0);
-  const [d, setData] = useState("");
-  const [p, setPreviousHash] = useState();
-  const [h, setHash] = useState();
   const [isValid, setIsValid] = useState(false);
   useEffect(() => {
     const hashedData = hashBlock({ blockNumber, nonce, data, previousHash });
     const checkIsValid =
       hashedData.substr(0, DIFFICULTY) === "0".repeat(DIFFICULTY);
     setIsValid(checkIsValid);
-    updateChainValue(blockNumber, "hash", hashedData);
+    updateChainValue(blockNumber, "hash", hashedData, node);
   }, [blockNumber, nonce, data, previousHash]);
   function handleMine() {
-    const { hashedData, nonce } = mineBlock({ blockNumber, data, previousHash });
-    updateChainValue(blockNumber, "nonce", nonce);
-    updateChainValue(blockNumber, "hash", hashedData);
+    const { hashedData, nonce } = mineBlock({
+      blockNumber,
+      data,
+      previousHash,
+    });
+    updateChainValue(blockNumber, "nonce", nonce, node);
+    updateChainValue(blockNumber, "hash", hashedData, node);
   }
 
   return (
-    <Container w="100%" mt="6">
+    <Container w="80%" my="6" minW="500">
       <Box bg={isValid ? "green.100" : "red.100"} padding="6" borderRadius="md">
         <Text>Block Number:</Text>
         <Textarea bg="white" mb="2" value={blockNumber} />
@@ -49,7 +49,7 @@ function BlockchainBlock({
           mb="2"
           value={nonce}
           onChange={(e) => {
-            updateChainValue(blockNumber, "nonce", e.target.value);
+            updateChainValue(blockNumber, "nonce", e.target.value, node);
           }}
         />
         <Text>Data:</Text>
@@ -57,7 +57,7 @@ function BlockchainBlock({
           bg="white"
           mb="2"
           onChange={(e) => {
-            updateChainValue(blockNumber, "data", e.target.value);
+            updateChainValue(blockNumber, "data", e.target.value, node);
           }}
           value={data}
         />
@@ -67,7 +67,7 @@ function BlockchainBlock({
           mb="2"
           value={previousHash}
           onChange={(e) => {
-            updateChainValue(blockNumber, "previousHash", e.target.value);
+            updateChainValue(blockNumber, "previousHash", e.target.value, node);
           }}
         />
         <Text>Hash:</Text>
