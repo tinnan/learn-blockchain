@@ -9,20 +9,24 @@ import {
   InputGroup,
   InputLeftElement,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getSecp256Keys } from "../blockchain/util/wallet";
 
-function Wallet() {
+function Wallet({ updateWalletData }) {
   const [publicKey, setPublicKey] = useState("");
   const [privateKey, setPrivateKey] = useState("");
+  useEffect(() => {
+    updateWalletData("publicKey", publicKey);
+    updateWalletData("privateKey", privateKey);
+  }, [publicKey, privateKey]);
   function handleCreateWallet() {
     const { publicKey, privateKey } = getSecp256Keys();
     setPublicKey(publicKey);
     setPrivateKey(privateKey);
   }
   return (
-    <Container maxW="80%" mt="6">
-      <Heading mb="10">Wallet</Heading>
+    <Container maxW="80%" mt="3">
+      <Heading mb="3">Wallet</Heading>
       <Box bg="green.100" padding="6" borderRadius="md">
         <Text>Public Key:</Text>
         <InputGroup>

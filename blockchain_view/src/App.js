@@ -8,6 +8,7 @@ import { Route, Switch } from "react-router-dom/cjs/react-router-dom.min";
 import Distributed from "./components/Distributed";
 import Transactions from "./components/Transactions";
 import Wallet from "./components/Wallet";
+import WalletSignAndVerify from "./components/WalletSignAndVerify";
 
 function App() {
   return (
@@ -31,6 +32,9 @@ function App() {
         </Route>
         <Route path="/wallet">
           <Wallet />
+        </Route>
+        <Route path="/signed">
+          <WalletSignAndVerify />
         </Route>
       </Switch>
     </Router>
