@@ -10,6 +10,7 @@ import Transactions from "./components/Transactions";
 import Wallet from "./components/Wallet";
 import WalletSignAndVerify from "./components/WalletSignAndVerify";
 import WalletSignAndVerifyWithTransaction from "./components/WalletTransaction/WalletSignAndVerifyWithTransaction";
+import TransactionsBlock from "./components/BlockchainWithWallet/TransactionsWallet";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
         </Route>
         <Route path="/wallet-transactions">
           <WalletSignAndVerifyWithTransaction />
+        </Route>
+        <Route path="/transactions-wallet">
+          <TransactionsBlock />
         </Route>
       </Switch>
     </Router>
