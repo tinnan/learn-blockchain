@@ -10,13 +10,12 @@ import {
   InputLeftElement,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { getSecp256Keys } from "../blockchain/util/wallet";
+import { getSecp256Keys } from "../../blockchain/util/wallet";
 
-function Wallet({ updateWalletData }) {
+function WalletWithTransaction({ updateWalletData }) {
   const [publicKey, setPublicKey] = useState("");
   const [privateKey, setPrivateKey] = useState("");
   useEffect(() => {
-    if (updateWalletData === undefined) return;
     updateWalletData("publicKey", publicKey);
     updateWalletData("privateKey", privateKey);
   }, [publicKey, privateKey]);
@@ -57,4 +56,4 @@ function Wallet({ updateWalletData }) {
   );
 }
 
-export default Wallet;
+export default WalletWithTransaction;

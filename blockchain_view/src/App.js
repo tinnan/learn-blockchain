@@ -9,6 +9,7 @@ import Distributed from "./components/Distributed";
 import Transactions from "./components/Transactions";
 import Wallet from "./components/Wallet";
 import WalletSignAndVerify from "./components/WalletSignAndVerify";
+import WalletSignAndVerifyWithTransaction from "./components/WalletTransaction/WalletSignAndVerifyWithTransaction";
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path="/signed">
           <WalletSignAndVerify />
+        </Route>
+        <Route path="/wallet-transactions">
+          <WalletSignAndVerifyWithTransaction />
         </Route>
       </Switch>
     </Router>
